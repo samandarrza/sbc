@@ -12,22 +12,19 @@ function updateCalculation() {
     var vatPayer = document.getElementById('vatpayer').value;
 
     // Dövriyyəni 10.000.000 ilə məhdudlaşdırırıq
-    if (turnover > 10000000) {
-        turnover = 10000000;
+    if (turnover > 3000000) {
+        turnover = 3000000;
         document.getElementById('turnover').value = turnover; // İstifadəçiyə 10.000.000 göstəririk
     }
 
     // İşçi sayını 1000 ilə məhdudlaşdırırıq
-    if (employees > 1000) {
-        employees = 1000;
+    if (employees > 50) {
+        employees = 50;
         document.getElementById('employees').value = employees; // İstifadəçiyə 1000 göstəririk
     }
 
     // Dövriyyə və xidmət növünü seçmə
-    if (turnover > 3000000) {
-        serviceType.value = 'medium';  // Orta Sahibkarlıq seçilir
-        taxpayer.value = 'profit'; // Mənfəət vergisi seçilir
-    } else if (turnover > 200000) {
+    if (turnover > 200000) {
         serviceType.value = 'small';   // Kiçik Sahibkarlıq seçilir
         taxpayer.value = 'profit'; // Mənfəət vergisi seçilir
     } else {
@@ -42,12 +39,8 @@ function updateCalculation() {
         if (taxpayer.value === 'simplified') {
             taxpayer.value = 'profit'; // Mənfəət vergisi seçilir
         }
-
-        // Gəlir vergisini aktiv edirik
-        taxpayer.querySelector('option[value="income"]').disabled = false; // Gəlir vergisi aktiv edilir
     } else {
         taxpayer.querySelector('option[value="simplified"]').disabled = false; // Sadələşdirilmiş vergi aktiv edilir
-        taxpayer.querySelector('option[value="income"]').disabled = false; // Gəlir vergisi aktiv edilir
     }
 
     // Hesablama funksiyasını çağırırıq
@@ -60,19 +53,13 @@ function calculateResult(turnover, serviceType, taxpayer, employees, vatPayer) {
     // Mikro Sahibkarlıq üçün hesablama
     if (serviceType === 'micro') {
         result += 50;
-        result += Math.max(100, Math.floor(turnover / 12000) * 10); // Mikro sahibkarlıq dövriyyəsinə görə
+        result += Math.max(115, Math.floor(turnover / 12000) * 10); // Mikro sahibkarlıq dövriyyəsinə görə
     }
 
     // Kiçik Sahibkarlıq üçün hesablama
     if (serviceType === 'small') {
         result += 75;
         result += Math.max(200, Math.floor(turnover / 36000) * 10); // Kiçik sahibkarlıq dövriyyəsinə görə
-    }
-
-    // Orta Sahibkarlıq üçün hesablama
-    if (serviceType === 'medium') {
-        result += 100;
-        result += Math.max(850, Math.floor(turnover / 50000) * 10); // Orta sahibkarlıq dövriyyəsinə görə
     }
 
     // İşçi sayına görə əlavə məbləğ

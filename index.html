@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahibkarlıq Hesablaması</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sahibkarlıq Hesablaması</h1>
+        
+        <label for="service-type">Xidmət Növü:</label>
+        <select id="service-type">
+            <option value="micro">Mikro Sahibkarlıq</option>
+            <option value="small">Kiçik Sahibkarlıq</option>
+            <option value="medium">Orta Sahibkarlıq</option>
+        </select>
+
+        <label for="turnover">İllik Dövriyyə (AZN):</label>
+        <input type="number" id="turnover" placeholder="Dövriyyə daxil edin"/>
+
+        <label for="employees">İşçi Sayı:</label>
+        <input type="number" id="employees" placeholder="İşçi sayı daxil edin" />
+
+        <label for="taxpayer">Mükəlləfiyyət:</label>
+        <select id="taxpayer">
+            <option value="simplified">Sadələşdirilmiş vergi</option>
+            <option value="profit">Mənfəət vergisi</option>
+            <option value="income">Gəlir vergisi</option>
+        </select>
+
+        <label for="vatpayer">ƏDV Ödəyiçisi:</label>
+        <select id="vatpayer">
+            <option value="no">Xeyr</option>
+            <option value="yes">Bəli</option>
+        </select>
+
+        <div class="result">
+            <h3 id="result">Ödəniləcək məbləğ: 0 AZN</h3>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -136,7 +136,7 @@
 
 	/* Init Counter */
 	if ($('.counter').length) {
-		$('.counter').counterUp({ delay: 6, time: 3000 });
+		$('.counter').counterUp({ delay: 6, time: 100 });
 	}
 
 	/* Image Reveal Animation */

@@ -53,13 +53,13 @@ function calculateResult(turnover, serviceType, taxpayer, employees, vatPayer) {
     // Mikro Sahibkarlıq üçün hesablama
     if (serviceType === 'micro') {
         result += 50;
-        result += Math.max(115, Math.floor(turnover / 12000) * 10); // Mikro sahibkarlıq dövriyyəsinə görə
+        result += Math.max(115, Math.floor(turnover / 10000) * 10); // Mikro sahibkarlıq dövriyyəsinə görə
     }
 
     // Kiçik Sahibkarlıq üçün hesablama
     if (serviceType === 'small') {
         result += 75;
-        result += Math.max(200, Math.floor(turnover / 36000) * 10); // Kiçik sahibkarlıq dövriyyəsinə görə
+        result += Math.max(200, Math.floor(turnover / 15000) * 10); // Kiçik sahibkarlıq dövriyyəsinə görə
     }
 
     // İşçi sayına görə əlavə məbləğ

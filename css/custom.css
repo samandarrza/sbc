@@ -6061,7 +6061,7 @@ footer.main-footer{
 	.section-title h2{
 		font-size: 26px;
 	}
-
+	
 	.hero-btn{
 		margin-right: 20px;
 	}
@@ -6388,7 +6388,7 @@ footer.main-footer{
     }
 
     .pricing-benefit-list ul li{
-        width: calc(50% - 7.5px);
+        width: calc(100% - 7.5px);
         font-size: 12px;
 		line-height: normal;
     }

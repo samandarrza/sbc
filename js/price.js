@@ -44,15 +44,23 @@ function calculateResult(turnover, serviceType, taxpayer, employees, vatPayer, f
 
     if (serviceType === 'micro') {
         result += 50;
-        result += Math.max(110, Math.floor(turnover / 10000) * 10);
+        result += Math.max(110, Math.floor(turnover / 9000) * 10);
     }
 
     if (serviceType === 'small') {
         result += 100;
-        result += Math.max(155, Math.floor(turnover / 18000) * 10);
+        if (turnover>1000000) {
+            result += Math.max(700, Math.floor(turnover / 23000) * 10);
+        }
+        else if (turnover>1500000) {
+            result += Math.max(1000, Math.floor(turnover / 30000) * 10);
+        }
+        else{
+            result += Math.max(155, Math.floor(turnover / 14000) * 10);
+        }
     }
 
-    result += Math.max(20, employees * 5);
+    result += Math.max(20, employees * 10);
 
     if (taxpayer === 'simplified') {
         result += 70;

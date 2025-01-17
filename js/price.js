@@ -55,16 +55,16 @@ function calculateResult(turnover, serviceType, taxpayer, employees, vatPayer, f
     result += Math.max(20, employees * 5);
 
     if (taxpayer === 'simplified') {
-        result += 65;
+        result += 70;
     } else if (taxpayer === 'profit' || taxpayer === 'income') {
         result += 85;
     }
 
     if (vatPayer === 'yes') {
-        result += Math.round(85 + turnover / 10000);
+        result += Math.round(100 + turnover / 10000);
     }
     if (fixedAssets === 'yes') {
-        result += Math.round(85 + turnover / 10000);
+        result += Math.round(100 + turnover / 10000);
     }
 
     document.getElementById('result').innerText = 'Ödəniləcək məbləğ: ' + result + ' AZN';
